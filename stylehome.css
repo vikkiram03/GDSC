@@ -1,0 +1,119 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}   
+
+body {
+    width: 100%;
+    background-image: linear-gradient(rgba(0,0,0,0.95),rgba(0,0,0,0.70)),url(trees.jpg);
+    height: 200vh;
+    background-size: cover;
+    background-position: center;
+}
+
+.navbar{
+    width: 85%;
+    margin: auto;
+    padding: 35px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar ul li{
+    list-style: none;
+    display: inline-block;
+    margin: 0 20px;
+    position: relative;
+}
+
+.navbar ul li a{
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.navbar ul li::after{
+    content: '';
+    height: 3px;
+    width: 0;
+    background: #009688;
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    transition: 0.5s;
+}
+
+.navbar ul li:hover::after{
+    width: 100%;
+}
+
+.content{
+    width: 100%;
+    position: absolute;
+    top: 25%;
+    text-align: center;
+    color: #fff;
+}
+
+.content h1{
+    font-size: 70px;
+    margin-top: 2px;
+    align-self: left;
+    margin-left: 45px;
+}
+
+.content p{
+    margin-top: 20px;
+    margin-left: 50px;
+    margin-right: 50px;
+    font-weight: 100;
+    line-height: 25px;
+    text-align: left;
+}
+
+.content ol{
+    margin-top: 20px;
+    margin-left: 150px;
+    margin-right: 50px;
+    font-weight: 100;
+    line-height: 25px;
+    text-align: left;
+}
+
+.content ul{
+    margin-top: 20px;
+    margin-left: 150px;
+    margin-right: 50px;
+    font-weight: 100;
+    line-height: 25px;
+    text-align: left;
+}
+
+img {
+    max-width: 400px;
+    float: right;
+    border: 1px solid #fff;
+    border-radius: 20px;
+    margin-right: 15px;
+    margin-left: 15px;
+    margin-top: 15px;
+    opacity: 75%;
+}
+
+.text-box{
+    color: #fff;
+}
+
+a:visited{
+    color: darkcyan;
+}
+
+.foot {
+    color: #fff;
+    margin-right: 15px;
+    margin-left: 15px;
+    margin-top: 50px;
+    font-family: 'Courier New', Courier, monospace;
+}

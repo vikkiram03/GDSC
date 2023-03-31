@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+    <link rel="stylesheet" href="style2.css">
+<script>
+function sumOfNbr(){
+    var eb, gb, ob, mil, flf, fgf, np, rm;
+    eb = Number(document.getElementById("eb").value)
+    gb = Number(document.getElementById("gb").value)
+    //ob = Number(document.getElementById("ob").value)
+    mil = Number(document.getElementById("mil").value)
+    flf = Number(document.getElementById("flf").value)
+    fgf = Number(document.getElementById("fgf").value)
+    np = String(document.getElementById("np").value)
+    rm = String(document.getElementById("rm").value)
+    sum = (eb/82)*105 + (gb/82)*105 + mil*0.6219*0.79 + flf*1100 + fgf*4400 //don't forget np and rm, + (ob/82)*113
+    if (np.toLowerCase() == 'no')
+    {
+        sum += 184
+    }
+    if (rm.toLowerCase() == 'no')
+    {
+        sum += 184
+    }
+    sum *= 0.0004536
+    document.getElementById("result").innerHTML = sum;
+
+    let out
+    if (sum<2.72) {out = "Very Low!"}
+    else if (sum>=2.72 && sum<7.25) {out = "Low!"}
+    else if (sum>=7.25 && sum<9.97) {out = "Average!"}
+    else {out = "High!"}
+
+    let output = `Your Carbon Footprint is ${out}`
+    document.getElementById("conclusion").innerHTML = output;
+}
+</script>
+</head>
+<body>
+    <div>
+        <p>
+Enter your monthly Electric Bill(in rupees): <input type="text" id="eb"><br>
+Enter your monthly Gas Bill(in rupees): <input type="text" id="gb"><br>
+<!--Enter your monthly Oil Bill(in rupees): <input type="text" id="ob"><br>-->
+Enter your car's Annual Mileage(in Km/years): <input type="text" id="mil"><br>
+Enter the number of flights you have taken in the past year(4 hours or less): <input type="text" id="flf"><br>
+Enter the number of flights you have taken in the past year(more than 4 hours): <input type="text" id="fgf"><br>
+Do you recycle your newspaper?(yes/no): <input type="text" id="np"><br>
+Do you recycle your newspaper?(yes/no): <input type="text" id="rm"><br>
+<button onclick="sumOfNbr()">Calculate</button><br>
+Your Carbon Footprint (in Tonnes per year): <span id="result"></span><br> <!--Low: 2.72-7.25, Average: 7.25-9.97, High: >9.97-->
+<span id="conclusion"></span>
+</p>
+</div>
+</body>
+</html>

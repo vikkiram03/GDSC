@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Climate Change | Carbon Footprint Calculator</title>
+    <link rel="stylesheet" href="stylefootprint.css">
+    <script>
+        function sumOfNbr(){
+            var eb, gb, ob, mil, flf, fgf, np, rm;
+            eb = Number(document.getElementById("eb").value)
+            gb = Number(document.getElementById("gb").value)
+            //ob = Number(document.getElementById("ob").value)
+            mil = Number(document.getElementById("mil").value)
+            flf = Number(document.getElementById("flf").value)
+            fgf = Number(document.getElementById("fgf").value)
+            np = String(document.getElementById("np").value)
+            rm = String(document.getElementById("rm").value)
+            sum = (eb/82)*105 + (gb/82)*105 + mil*0.6219*0.79 + flf*1100 + fgf*4400 //don't forget np and rm, + (ob/82)*113
+            if (np.toLowerCase() == 'no')
+            {
+                sum += 184
+            }
+            if (rm.toLowerCase() == 'no')
+            {
+                sum += 184
+            }
+            sum *= 0.0004536
+            document.getElementById("result").innerHTML = sum;
+        
+            let out
+            if (sum<2.72) {out = "Very Low!"}
+            else if (sum>=2.72 && sum<7.25) {out = "Low!"}
+            else if (sum>=7.25 && sum<9.97) {out = "Average!"}
+            else {out = "High!"}
+        
+            let output = `Your Carbon Footprint is ${out}`
+            document.getElementById("conclusion").innerHTML = output;
+        }
+    </script>
+</head>
+<body>
+    <div class="banner">
+        <!--Navigation Tag-->
+        <div class="navbar">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="causes.html">Causes</a></li>
+                <li><a href="effects.html">Effects</a></li>
+                <li><a href="solution.html">Solutions</a></li>
+                <li><a href="#">Carbon Footprint Calculator</a></li>
+            </ul>
+        </div>
+
+        <!--Main Content-->
+        <div class="content">
+            <h1 align="left">Carbon Footprint Calculator</h1>
+            <div class="wrapper">
+                <div class="textbox">
+                    <p>
+                        A carbon footprint is the total amount of greenhouse gas emissions that are associated with human production or consumption activities. It includes direct emissions, such as those that result from fossil-fuel combustion in manufacturing, heating, and transportation, as well as emissions required to produce the electricity associated with goods and services consumed. The carbon footprint concept is related to and grew out of the older idea of ecological footprint, which is the total area of land required to sustain an activity or population.
+                    </p>
+                    <ul>
+                        <li>Enter your monthly Electric Bill(in rupees): <input type="text" id="eb"><br></li>
+                        <li>Enter your monthly Gas Bill(in rupees): <input type="text" id="gb" required><br></li>
+                        <li>Enter your car's Annual Mileage(in Km/years): <input type="text" id="mil"><br></li>
+                        <li>Enter the number of flights you have taken in the past year(4 hours or less): <input type="text" id="flf"><br></li>
+                        <li>Enter the number of flights you have taken in the past year(more than 4 hours): <input type="text" id="fgf"><br></li>
+                        <li>Do you recycle your newspaper?(yes/no): <input type="text" id="np"><br></li>
+                        <li>Do you recycle your newspaper?(yes/no): <input type="text" id="rm"><br></li>
+                        <button onclick="sumOfNbr()">Calculate</button><br>
+                        <li>Your Carbon Footprint (in Tonnes per year): <span id="result"></span><br> </li>
+                        <span id="conclusion"></span>
+                        <!--Low: 2.72-7.25, Average: 7.25-9.97, High: >9.97-->
+                        <!--Enter your monthly Oil Bill(in rupees): <input type="text" id="ob"><br>-->
+                    </ul>
+                </div>
+            </div>
+            <div class="foot">
+                <a href="#">FAQs</a> &nbsp; &vert; &nbsp;
+                <a href="#">Contact Us</a> &nbsp; &vert; &nbsp;
+                <a href="#">Terms and Conditions</a> &nbsp; &vert; &nbsp;
+                <a href="#">Privacy Policy</a> &nbsp; &vert; &nbsp;
+                <a href="#">&copy; 2023 All rights reserved</a>
+            </div>
+            <br>
+        </div>
+    </div>
+</body>
+</html>
